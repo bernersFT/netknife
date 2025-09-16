@@ -1,33 +1,3 @@
-
-netsec_toolkit/
-├─ pyproject.toml
-├─ README.md
-├─ LICENSE
-├─ CHANGELOG.md
-├─ src/
-│  └─ netsec_toolkit/
-│     ├─ __init__.py
-│     ├─ __main__.py          # 支持 `python -m netsec_toolkit`
-│     ├─ cli.py               # CLI 入口（argparse / Typer 都行）
-│     ├─ errors.py            # 自定义异常
-│     ├─ http.py              # 通用 HTTP 客户端封装（requests session）
-│     ├─ models.py            # 可选：公共数据模型/类型别名
-│     ├─ adapters/
-│     │  ├─ __init__.py
-│     │  ├─ base.py           # 抽象基类（统一接口）
-│     │  └─ fortigate.py      # FortiGate 适配器：移植你当前全部能力
-│     └─ commands/            # CLI 子命令分文件，便于维护与测试
-│        ├─ __init__.py
-│        ├─ policy.py
-│        ├─ address.py
-│        ├─ addrgrp.py
-│        ├─ vip.py
-│        └─ smart.py
-└─ tests/
-   ├─ conftest.py
-   ├─ test_fortigate_vip.py
-   └─ test_cli_smoke.py
-
 # FortiGate Policy & Address Toolkit — **README (v1.1.0)**
 
 A single-file Python CLI that talks to FortiGate’s REST API to manage **policies**, **addresses**, **address groups**, and **virtual IPs (VIPs)** — plus a few productivity helpers (smart grouping, bulk attach, quick search).
