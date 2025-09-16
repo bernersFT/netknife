@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "netknife"
+version = "1.1.0"
+description = "CLI & Python SDK for FortiGate: policies, addresses, addrgrps, VIPs."
+readme = "README.md"
+requires-python = ">=3.8"
+license = { file = "LICENSE" }
+authors = [{ name = "Berners.lk",email = "Berners.lk@gmail.com"}]
+
+dependencies = [
+  "requests>=2.28",
+  "urllib3>=1.26"
+]
+
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Operating System :: OS Independent"
+]
+
+[project.urls]
+Homepage = "https://example.com/netknife"
+Source = "https://example.com/netknife"
+Issues = "https://example.com/netknife/issues"
+
+[project.scripts]
+netknife = "netknife.__main__:main"
+
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]
+include = ["netknife*"]
