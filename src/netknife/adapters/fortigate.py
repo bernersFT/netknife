@@ -29,7 +29,22 @@ class FortiGateClient:
                 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
             except Exception:
                 pass
+    # 新增：显式释放资源
+    def close(self):
+        try:
+            self.session.close()
+        except Exception:
+            pass
 
+    # 新增：支持 with 语法
+    def __enter__(self):
+        return self
+
+    def __exit__(self, exc_type, exc, tb):
+        self.close()
+        # 返回 False 让异常继续抛出（符合常规期望）
+        return False
+    
     def _params(self, extra: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         params: Dict[str, Any] = {"access_token": self.token}
         if self.vdom:
